@@ -1,0 +1,123 @@
+:root {
+    --bg-color: #0f0f23;
+    --text-color: #e0e0ff;
+    --accent-color: #50c5b7;
+    --highlight-color: #ff6b6b;
+  }
+  
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .cosmic-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(80, 197, 183, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Background space effect */
+  .space-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/space_images.png') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+    animation: starfield 100s linear infinite;
+  }
+
+  @keyframes starfield {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-color);
+  }
+  
+  .countdown {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  
+  .countdown-item {
+    perspective: 1000px;
+  }
+  
+  .countdown-value {
+    font-size: 3rem;
+    font-weight: bold;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-block;
+    transform: rotateX(30deg);
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .countdown-item:hover .countdown-value {
+    transform: rotateX(40deg) scale(1.1);
+  }
+  
+  .countdown-label {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--highlight-color);
+    text-transform: uppercase;
+  }
+  
+  select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+  
+  .cosmic-sphere {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, var(--accent-color), var(--highlight-color));
+    border-radius: 50%;
+    filter: blur(5px);
+    opacity: 0.7;
+    animation: float 10s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(50px, 50px) rotate(90deg); }
+    50% { transform: translate(100px, 0) rotate(180deg); }
+    75% { transform: translate(50px, -50px) rotate(270deg); }
+  }
